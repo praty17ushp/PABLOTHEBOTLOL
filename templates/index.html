@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>PabloBot</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body data-theme="dark">
+
+  <!-- Background video (place static/bg.mp4). If not present, gradient fallback is used -->
+  <video id="bgVideo" autoplay loop muted playsinline class="bg-video">
+    <source src="/static/bg.mp4" type="video/mp4">
+  </video>
+  <div class="bg-fallback"></div>
+
+  <div class="app">
+    <aside class="side">
+      <img class="logo" src="/static/pablo_logo.png" alt="Pablo logo">
+      <h1>PabloBot</h1>
+
+      <div class="controls">
+        <button id="voiceToggle" class="btn">🎤 Voice: Off</button>
+        <select id="voiceSelect" class="select"></select>
+        <select id="accentSelect" class="select">
+            <option value="any">Accent: Any</option>
+            <option value="en-US">Accent: US</option>
+            <option value="en-GB">Accent: UK</option>
+            <option value="en-IN">Accent: Indian</option>
+            <option value="deep">Deep / AI</option>
+        </select>
+        <button id="clearName" class="btn secondary">Clear Name</button>
+        <button id="exportChat" class="btn secondary">Export Chat</button>
+        <label class="themeSwitch">Theme: <input id="themeToggle" type="checkbox"></label>
+      </div>
+
+      <div class="help">
+        <strong>Try:</strong>
+        <ul>
+          <li>"My name is Priya"</li>
+          <li>"Give me game recommendations"</li>
+          <li>"Tell me a joke"</li>
+          <li>"Tell the time / date / day"</li>
+          <li>"What's tomorrow?"</li>
+          <li>"Tell me about the world"</li>
+        </ul>
+      </div>
+    </aside>
+
+    <main class="chat">
+      <div class="chatHeader">
+        <div class="botAvatar"><img src="/static/pablo_logo.png" alt=""></div>
+        <div class="title"><h2>PabloBot</h2><span id="status">Type or press 🎤</span></div>
+      </div>
+
+      <div id="messages" class="messages" aria-live="polite"></div>
+
+      <div class="inputRow">
+        <input id="userInput" type="text" placeholder="Ask about games, movies, jokes, time..." autocomplete="off">
+        <button id="sendBtn" class="send">Send</button>
+      </div>
+    </main>
+  </div>
+
+  <script src="/static/script.js"></script>
+</body>
+</html>
